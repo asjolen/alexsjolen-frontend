@@ -1,0 +1,66 @@
+*, html, body, .ant-typography {
+  font-family: $font-family;
+}
+
+html {
+  background-color: $color-background;
+}
+
+body {
+  background-color: $color-background;
+  background: linear-gradient(-45deg, rgba($color-primary, 0.025), rgba($color-primary, 0.05), rgba($color-primary, 0.03), rgba($color-primary, 0.01));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  min-height: 100vh;
+  height: auto;
+}
+
+.page-wrapper {
+  width: calc(100% - 80px);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.logotype-primary {
+  width: 40px;
+  height: 40px;
+  background: url("../../assets/logotype-primary.svg") center center no-repeat;
+  background-size: cover;
+}
+
+.full-width {
+  width: 100%;
+}
+
+router-outlet + * {
+  display: block;
+  animation: fade 0.2s;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .page-wrapper {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+  }
+}

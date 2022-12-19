@@ -1,0 +1,45 @@
+.ant-typography {
+  color: #FFF !important;
+}
+
+h4, h5 {
+  opacity: 0.6;
+  font-weight: normal !important;
+}
+
+.text {
+  opacity: 0.6;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.make-title {
+  opacity: 1;
+  font-weight: bold !important;
+}
+
+.custom-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 25px;
+  border: 1px solid rgba(#FFF, 0.25);
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #FFF;
+  border-radius: $border-radius;
+  text-align: center;
+  display: inline-block;
+  transition: 0.2s ease-in-out all;
+  cursor: pointer;
+
+  &:hover {
+    background: #FFF;
+    color: $color-background;
+  }
+}

@@ -1,0 +1,66 @@
+<div class="page-wrapper">
+  <section class="-hero" *ngIf="pageContent">
+    <nz-row [nzGutter]="[20, 20]">
+      <nz-col [nzXs]="24" [nzSm]="24" [nzMd]="14" [nzLg]="14" [nzXl]="14">
+        <div class="logotype-primary mb4"></div>
+        <h1 nz-typography>{{ pageContent.acf.header }}</h1>
+        <h4 nz-typography class="">{{ pageContent.acf.subheader }}</h4>
+
+        <div class="mt3">
+          <div class="custom-btn mr2" (click)="openLink('/assets/resume.pdf')">Ladda ner CV</div>
+          <div class="custom-btn" (click)="openLink('https://www.linkedin.com/in/alex-sjolen/')">LinkedIn</div>
+        </div>
+      </nz-col>
+
+    </nz-row>
+  </section>
+
+  <section>
+    <nz-row [nzGutter]="[40, 40]">
+      <nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="12" [nzXl]="12" *ngFor="let work of workPosts">
+        <div class="card -experience {{ work.acf.highlight_color != '' ? '' : '-full-size-bg' }}" [ngStyle]="{'background-image': 'url(' + work.acf.highlight_image + ')', 'background-color': work.acf.highlight_color}">
+          <div class="-view-more" (click)="showWorkModal(work)">
+            <app-icon [icon]="'arrow-up-right'" [size]="20"></app-icon>
+          </div>
+
+          <div class="-header">
+            <div class="-logotype" [ngStyle]="{'background': 'url(' + work.acf.logotype + ') center center no-repeat'}"></div>
+            <div>
+              <h4 nz-typography class="mb0 mt0 -title">{{ work.acf.work_name }}</h4>
+              <span nz-typography>{{ work.acf.start_year }} - {{ work.acf.end_year }}</span>
+            </div>
+          </div>
+        </div>
+      </nz-col>
+    </nz-row>
+  </section>
+
+  <section>
+    <nz-divider></nz-divider>
+  </section>
+
+  <section>
+    <nz-row [nzGutter]="[40, 40]">
+      <nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="12" [nzXl]="12" *ngFor="let education of educationPosts">
+      </nz-col>
+    </nz-row>
+  </section>
+</div>
+
+
+<nz-modal [(nzVisible)]="workModalVisible" (nzOnCancel)="workModalVisible = false" (nzOnOk)="workModalVisible = false" [nzFooter]="null">
+  <ng-container *nzModalContent>
+    <div class="-hero-holder {{ workModalContent.acf.highlight_color != '' ? '' : '-full-size-bg' }}" [ngStyle]="{'background-image': 'url(' + workModalContent.acf.highlight_image + ')', 'background-color': workModalContent.acf.highlight_color}"></div>
+    <h3 nz-typography class="mb0">{{ workModalContent.acf.work_name }}</h3>
+    <h5 nz-typography class="mb0 mt0">
+      <span class="make-title mr1">{{ workModalContent.acf.role }}</span>
+      <span>| {{ workModalContent.acf.start_year }} - {{ workModalContent.acf.end_year }}</span>
+    </h5>
+
+    <h5 nz-typography class="make-title mb0">Mitt arbete</h5>
+    <span nz-typography class="text" *ngIf="workModalContent.acf.description" [innerHTML]="fixTextBR(workModalContent.acf.description)"></span>
+
+    <h5 nz-typography class="make-title mb0">Stack</h5>
+    <span class="tag" *ngFor="let tech of workModalContent.acf.tech_stack">{{ tech.tag }}</span>
+  </ng-container>
+</nz-modal>

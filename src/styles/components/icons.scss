@@ -1,0 +1,29 @@
+.icon {
+  &.-linkedin {
+    background: url("../../assets/icon-linkedin.svg") center center no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s ease-in-out all;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &.-resume {
+    background: url("../../assets/icon-resume.svg") center center no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s ease-in-out all;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
